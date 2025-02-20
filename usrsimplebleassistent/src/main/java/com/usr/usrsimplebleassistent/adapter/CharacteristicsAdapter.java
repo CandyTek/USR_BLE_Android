@@ -14,9 +14,6 @@ import com.usr.usrsimplebleassistent.Utils.Utils;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
  * Created by Administrator on 2015-11-18.
  */
@@ -92,13 +89,12 @@ public class CharacteristicsAdapter extends BaseAdapter {
      * @author ButterKnifeZelezny, plugin for Android Studio by Avast Developers (http://github.com/avast)
      */
     static class ViewHolder {
-        @BindView(R.id.tv_characteristic_name)
         TextView tvCharacteristicName;
-        @BindView(R.id.tv_characteristic_properties)
         TextView tvCharacteristicProperties;
 
         ViewHolder(View view) {
-            ButterKnife.bind(this, view);
+            tvCharacteristicName=view.findViewById(R.id.tv_characteristic_name);
+            tvCharacteristicProperties=view.findViewById(R.id.tv_characteristic_properties);
         }
     }
 }

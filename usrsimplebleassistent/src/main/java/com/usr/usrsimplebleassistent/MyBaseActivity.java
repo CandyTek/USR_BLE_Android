@@ -11,11 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MyBaseActivity extends AppCompatActivity {
-    @BindView(R.id.toolbar)
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +20,10 @@ public class MyBaseActivity extends AppCompatActivity {
 //        getWindow().setBackgroundDrawable(null);
     }
     protected void bindToolBar(){
-        ButterKnife.bind(this);
+
+
+        toolbar=findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white_36dp);
         if (Build.VERSION.SDK_INT >= 23) {

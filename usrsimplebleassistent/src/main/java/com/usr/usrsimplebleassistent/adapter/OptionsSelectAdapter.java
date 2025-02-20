@@ -13,8 +13,6 @@ import com.usr.usrsimplebleassistent.bean.Option;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by liu on 15/8/9.
@@ -69,12 +67,13 @@ public class OptionsSelectAdapter extends RecyclerView.Adapter<RecyclerView.View
 
 
     public class OptionHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.btn_option_select)
         Button btnOption;
 
         public OptionHolder(View view){
             super(view);
-            ButterKnife.bind(this, view);
+
+
+            btnOption=view.findViewById(R.id.btn_option_select);
         }
     }
 

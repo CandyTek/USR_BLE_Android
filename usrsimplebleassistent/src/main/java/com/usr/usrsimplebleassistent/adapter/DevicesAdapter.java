@@ -15,8 +15,6 @@ import com.usr.usrsimplebleassistent.bean.MDevice;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 /**
@@ -100,16 +98,16 @@ public class DevicesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      * @author ButterKnifeZelezny, plugin for Android Studio by Avast Developers (http://github.com/avast)
      */
     static class CellViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.tv_dev_name)
         TextView tvDevName;
-        @BindView(R.id.tv_dev_signal)
         TextView tvDevSignal;
-        @BindView(R.id.tv_dev_mac)
         TextView tvDevMac;
 
         public CellViewHolder(final View view) {
             super(view);
-            ButterKnife.bind(this, view);
+            tvDevName=view.findViewById(R.id.tv_dev_name);
+            tvDevSignal=view.findViewById(R.id.tv_dev_signal);
+            tvDevMac=view.findViewById(R.id.tv_dev_mac);
+
         }
     }
 

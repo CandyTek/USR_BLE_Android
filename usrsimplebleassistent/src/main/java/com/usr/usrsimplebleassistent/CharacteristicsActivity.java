@@ -18,15 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import butterknife.BindView;
 
 public class CharacteristicsActivity extends MyBaseActivity {
-    @BindView(R.id.view_filter)
-    View filterView;
-    @BindView(R.id.lv_characteristics)
-    ListView lvCharacteristics;
-    @BindView(R.id.view_shadow)
-    View viewShadow;
+    private View filterView;
+    private ListView lvCharacteristics;
+    private View viewShadow;
 
     private final List<BluetoothGattCharacteristic> list = new ArrayList<>();
     private CharacteristicsAdapter adapter;
@@ -37,6 +33,7 @@ public class CharacteristicsActivity extends MyBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_characteristics);
+        bindView(null);
         bindToolBar();
 
         myApplication = (MyApplication) getApplication();
@@ -112,4 +109,9 @@ public class CharacteristicsActivity extends MyBaseActivity {
                 .start();
     }
 
+    private void bindView(View bindSource) {
+        filterView = findViewById(R.id.view_filter);
+        lvCharacteristics = findViewById(R.id.lv_characteristics);
+        viewShadow = findViewById(R.id.view_shadow);
+    }
 }

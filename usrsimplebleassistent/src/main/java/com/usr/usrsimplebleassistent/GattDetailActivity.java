@@ -56,36 +56,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import materialdialog.MaterialDialog;
 
 public class GattDetailActivity extends MyBaseActivity {
 
-    @BindView(R.id.btn_options)
     ImageButton btnOptions;
-    @BindView(R.id.btn_option)
     Button btnOption;
-    @BindView(R.id.lv_msg)
     RecyclerView rvMsg;
-    @BindView(R.id.tv_properties)
     TextView tvProperties;
-    @BindView(R.id.et_write)
     EditText etWrite;
-    @BindView(R.id.btn_send)
     Button btnSend;
-    @BindView(R.id.rl_write)
     RelativeLayout rlWrite;
-    @BindView(R.id.rl_content)
     RelativeLayout rlContent;
-    @BindView(R.id.rl_bottom)
     RelativeLayout rlBottom;
-    @BindView(R.id.view_bottom_shadow)
     View bottomShadow;
-    @BindView(R.id.view_top_shadow)
     View topShadow;
-    @BindView(R.id.view_filter)
     View filterView;
 
     private final List<Message> list = new ArrayList<>();
@@ -212,7 +197,41 @@ public class GattDetailActivity extends MyBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gatt_detail);
-        ButterKnife.bind(this);
+
+
+        btnOptions=findViewById(R.id.btn_options);
+        btnOption=findViewById(R.id.btn_option);
+        rvMsg=findViewById(R.id.lv_msg);
+        tvProperties=findViewById(R.id.tv_properties);
+        etWrite=findViewById(R.id.et_write);
+        btnSend=findViewById(R.id.btn_send);
+        rlWrite=findViewById(R.id.rl_write);
+        rlContent=findViewById(R.id.rl_content);
+        rlBottom=findViewById(R.id.rl_bottom);
+        bottomShadow=findViewById(R.id.view_bottom_shadow);
+        topShadow=findViewById(R.id.view_top_shadow);
+        filterView=findViewById(R.id.view_filter);
+
+        findViewById(R.id.btn_options).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onOptionsClick();
+            }
+        });
+
+        findViewById(R.id.btn_option).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onOptionClick();
+            }
+        });
+        findViewById(R.id.btn_send).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSendClick();
+            }
+        });
+        
         bindToolBar();
         myApplication = (MyApplication) getApplication();
         optionsMenuManager = OptionsMenuManager.getInstance();
@@ -369,7 +388,6 @@ public class GattDetailActivity extends MyBaseActivity {
 
 
 
-    @OnClick(R.id.btn_options)
     public void onOptionsClick() {
         optionsMenuManager.toggleContextMenuFromView(options, btnOptions, new OptionsSelectAdapter.OptionsOnItemSelectedListener() {
             @Override
@@ -381,7 +399,6 @@ public class GattDetailActivity extends MyBaseActivity {
     }
 
 
-    @OnClick(R.id.btn_option)
     public void onOptionClick() {
         if (optionsMenuManager.getOptionsMenu()!=null){
             dismissMenu();
@@ -403,7 +420,6 @@ public class GattDetailActivity extends MyBaseActivity {
     }
 
 
-    @OnClick(R.id.btn_send)
     public void onSendClick(){
         writeOption();
     }

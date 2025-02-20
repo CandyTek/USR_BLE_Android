@@ -14,8 +14,6 @@ import com.usr.usrsimplebleassistent.bean.Message;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2015-07-28.
@@ -85,22 +83,24 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public static class MessageViewHolderLeft extends RecyclerView.ViewHolder{
-        @BindView(R.id.tv_msg_content)
         TextView tvMsgContent;
 
         public MessageViewHolderLeft(final View view){
             super(view);
-            ButterKnife.bind(this, view);
+
+
+            tvMsgContent=view.findViewById(R.id.tv_msg_content);
         }
     }
 
     public static class MessageViewHolderRight extends RecyclerView.ViewHolder{
-        @BindView(R.id.tv_msg_content)
         TextView tvMsgContent;
 
         public MessageViewHolderRight(final View view){
             super(view);
-            ButterKnife.bind(this,view);
+
+
+            tvMsgContent=view.findViewById(R.id.tv_msg_content);
         }
     }
 }

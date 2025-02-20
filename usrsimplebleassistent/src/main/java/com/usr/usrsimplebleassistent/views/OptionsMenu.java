@@ -15,8 +15,6 @@ import com.usr.usrsimplebleassistent.adapter.OptionsSelectAdapter;
 import com.usr.usrsimplebleassistent.bean.Option;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by liu on 15/8/9.
@@ -24,7 +22,6 @@ import butterknife.ButterKnife;
 public class OptionsMenu extends LinearLayout {
     private static final int CONTEXT_MENU_WIDTH = Utils.dpToPx(200);
 
-    @BindView(R.id.rv_options)
     RecyclerView rv_options;
 
     private List<Option> list;
@@ -55,7 +52,9 @@ public class OptionsMenu extends LinearLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ButterKnife.bind(this);
+
+
+        rv_options=findViewById(R.id.rv_options);
         initRecycleView();
     }
 

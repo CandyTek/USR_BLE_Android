@@ -53,12 +53,10 @@ import com.usr.usrsimplebleassistent.views.RevealSearchView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import materialdialog.MaterialDialog;
 
 
 public class MainActivity extends MyBaseActivity implements BleFragment.OnRunningAppRefreshListener,View.OnClickListener {
-    @BindView(R.id.coll_toolbar)
     CollapsingToolbarLayout collapsingToolbarLayout;
     private static BluetoothAdapter mBluetoothAdapter;
     private Handler hander;
@@ -140,6 +138,10 @@ public class MainActivity extends MyBaseActivity implements BleFragment.OnRunnin
         super.onCreate(savedInstanceState);
         requestPermission(this);
         setContentView(R.layout.activity_main);
+
+
+        collapsingToolbarLayout=findViewById(R.id.coll_toolbar);
+
         //必须调用，其在setContentView后面调用
         bindToolBar();
         //标题栏

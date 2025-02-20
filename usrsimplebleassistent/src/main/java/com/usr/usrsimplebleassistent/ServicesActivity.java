@@ -26,25 +26,16 @@ import com.usr.usrsimplebleassistent.bean.MService;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 
 public class ServicesActivity extends MyBaseActivity {
     private final List<MService> list = new ArrayList<>();
-    @BindView(R.id.rl_top)
     RelativeLayout rlTop;
-    @BindView(R.id.view_filter)
     View filterView;
-    @BindView(R.id.view_shadow)
     View viewShadow;
-    @BindView(R.id.lv_services)
     ListView lvServices;
-    @BindView(R.id.iv_ble)
     ImageView ivBle;
-    @BindView(R.id.tv_service_name)
     TextView tvServiceName;
-    @BindView(R.id.tv_service_mac)
     TextView tvServiceMac;
-    @BindView(R.id.tv_service_count)
     TextView tvServiceCount;
 
     private ServicesAdapter adapter;
@@ -55,6 +46,17 @@ public class ServicesActivity extends MyBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
+
+
+        rlTop=findViewById(R.id.rl_top);
+        filterView=findViewById(R.id.view_filter);
+        viewShadow=findViewById(R.id.view_shadow);
+        lvServices=findViewById(R.id.lv_services);
+        ivBle=findViewById(R.id.iv_ble);
+        tvServiceName=findViewById(R.id.tv_service_name);
+        tvServiceMac=findViewById(R.id.tv_service_mac);
+        tvServiceCount=findViewById(R.id.tv_service_count);
+
         bindToolBar();
         myApplication =  (MyApplication) getApplication();
         List<MService> services =myApplication.getServices();
